@@ -1,0 +1,9 @@
+services:
+  cadquery: 
+    # image: bwalter42/jupyter_cadquery:3.5.2
+    build: 
+      dockerfile: docker/Dockerfile.cadquery
+    volumes:
+      - ./:/home/cq
+    ports: 
+      - '8888:8888'

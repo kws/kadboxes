@@ -1,0 +1,12 @@
+FROM bwalter42/jupyter_cadquery:3.5.2
+
+USER root
+
+RUN . "/opt/conda/etc/profile.d/conda.sh" && conda activate cq && \
+    pip install git+https://github.com/gumyr/cq_warehouse.git#egg=cq_warehouse  git+https://github.com/meadiode/cq_gears.git@main && \
+    find / -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
+
+USER cq 
+
+ENV PYTHONPATH=/home/cq
+
